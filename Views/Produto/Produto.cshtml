@@ -1,0 +1,52 @@
+﻿@model WebApplication1.Context.tblProduto
+
+@{
+    ViewBag.Title = "Produto";
+}
+<style>
+    .error{
+        color:red;
+    }
+
+</style>
+
+@using (Html.BeginForm("AddProduto", "Produto", FormMethod.Post))
+{ 
+<div class="container">
+    <div class="form-group">
+        @Html.HiddenFor(x=>x.Id)
+        <label>Nome</label>
+        @Html.ValidationMessageFor(x => x.Nome,"",new { @class="error"})
+        @Html.TextBoxFor(x => x.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Descrição</label>
+        @Html.ValidationMessageFor(x => x.Descricao, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.Descricao, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ativo</label>
+        @Html.ValidationMessageFor(x => x.Ativo, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.Ativo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Perecível</label>
+        @Html.ValidationMessageFor(x => x.Perecivel, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.Perecivel, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>CategoriaID</label>
+        @Html.ValidationMessageFor(x => x.Categoria, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.Categoria, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+    </div>
+
+</div>
+}
+
+
+

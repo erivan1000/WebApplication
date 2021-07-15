@@ -1,0 +1,31 @@
+﻿@Model List<WebApplication1.Context.tblProduto>
+@{
+    ViewBag.Title = "ProdutoList";
+}
+
+               <table class="table table-hover">
+                   <tr>
+                       <th>Nome</th>
+                       <th>Descricao</th>
+                       <th>Ativo</th>
+                       <th>Perecivel</th>
+                       <th>Categoria</th>
+                   </tr>
+                   @foreach (var item in Model)
+                   {
+                        <tr>
+                             <td>@item.Nome</td>
+                             <td>@item.Descricao</td>
+                             <td>@item.Ativo</td>
+                             <td>@item.Perecivel</td>
+                             <td>@item.Categoria</td>
+                             <td>
+                                 <a href="@Url.Action("Produto", new { item.ID,item.Nome,item.Descricao,item.Ativo,item.Perecivel,item.Categoria})" class="btn btn-success">Atualizar</a>
+                                 <a href="@Url.Action("Deletar", new { item.ID})" class="btn btn-danger">Deletar</a>
+                             </td>
+                        </tr>
+                       
+                    }
+
+               </table>
+
